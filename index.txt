@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JIA Lead Feedback Form</title>
+<style>
+  :root{
+    --jio-blue:#0F1C4D;
+    --jio-blue-light:#16266b;
+    --jio-red:#E4002B;
+    --bg:#f2f4f9;
+    --card:#ffffff;
+    --text:#1c1f2a;
+    --muted:#6b7280;
+    --border:#e2e5ec;
+    --success:#0f9d58;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Segoe UI', Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:0 0 40px;
+  }
+  header{
+    width:100%;
+    background:linear-gradient(135deg,var(--jio-blue),var(--jio-blue-light));
+    color:#fff;
+    padding:22px 20px 26px;
+    text-align:center;
+    box-shadow:0 4px 14px rgba(15,28,77,0.25);
+  }
+  header .brand{
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--jio-red);
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  header h1{
+    margin:0;
+    font-size:22px;
+    font-weight:700;
+  }
+  header p{
+    margin:6px 0 0;
+    font-size:13px;
+    color:#cfd6ea;
+  }
+  form{
+    width:100%;
+    max-width:520px;
+    background:var(--card);
+    margin-top:-18px;
+    border-radius:14px;
+    box-shadow:0 8px 24px rgba(15,28,77,0.10);
+    padding:22px 20px 28px;
+  }
+  .field{
+    margin-bottom:16px;
+  }
+  label{
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:6px;
+    color:var(--jio-blue);
+  }
+  label .req{
+    color:var(--jio-red);
+  }
+  input, select, textarea{
+    width:100%;
+    padding:11px 12px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    font-size:15px;
+    background:#fbfbfd;
+    color:var(--text);
+  }
+  input:focus, select:focus, textarea:focus{
+    outline:none;
+    border-color:var(--jio-blue);
+    background:#fff;
+  }
+  textarea{
+    resize:vertical;
+    min-height:64px;
+  }
+  .hint{
+    font-size:11.5px;
+    color:var(--muted);
+    margin-top:4px;
+  }
+  button{
+    width:100%;
+    padding:13px;
+    background:var(--jio-red);
+    color:#fff;
+    border:none;
+    border-radius:9px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    letter-spacing:0.3px;
+    transition:opacity .2s;
+  }
+  button:disabled{
+    opacity:0.6;
+    cursor:not-allowed;
+  }
+  .msg{
+    margin-top:14px;
+    padding:12px 14px;
+    border-radius:8px;
+    font-size:14px;
+    display:none;
+  }
+  .msg.success{
+    display:block;
+    background:#e6f6ee;
+    color:var(--success);
+    border:1px solid #b6e6cc;
+  }
+  .msg.error{
+    display:block;
+    background:#fdecec;
+    color:var(--jio-red);
+    border:1px solid #f6c2cb;
+  }
+  .section-title{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:20px 0 10px;
+    border-top:1px dashed var(--border);
+    padding-top:16px;
+  }
+  .section-title:first-of-type{
+    border-top:none;
+    padding-top:0;
+    margin-top:0;
+  }
+  footer{
+    margin-top:18px;
+    font-size:11.5px;
+    color:var(--muted);
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Jio Infocomm | Berhampur Area</div>
+  <h1>Lead Feedback Form</h1>
+  <p>Order &amp; installation follow-up call capture</p>
+</header>
+
+<form id="leadForm">
+  <div class="section-title">Caller Details</div>
+
+  <div class="field">
+    <label>Territory <span class="req">*</span></label>
+    <select id="territory" required>
+      <option value="" disabled selected>Select territory</option>
+      <option value="Berhampur (OR-BRAH)">Berhampur (OR-BRAH)</option>
+      <option value="Bhawanipatna (OR-BNPN)">Bhawanipatna (OR-BNPN)</option>
+      <option value="Jeypore (OR-JYPR)">Jeypore (OR-JYPR)</option>
+      <option value="Rayagada (OR-RYGD)">Rayagada (OR-RYGD)</option>
+      <option value="Sunabeda (OR-SNBD)">Sunabeda (OR-SNBD)</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Caller / Agent Name <span class="req">*</span></label>
+    <input type="text" id="callerName" placeholder="e.g. Rajesh Sahoo (JCM)" required>
+  </div>
+
+  <div class="section-title">Lead Details</div>
+
+  <div class="field">
+    <label>Order ID <span class="req">*</span></label>
+    <input type="text" id="orderId" placeholder="Enter Order ID" required>
+  </div>
+
+  <div class="field">
+    <label>Rider PRM ID</label>
+    <input type="text" id="riderPrmId" placeholder="Enter Rider PRM ID">
+  </div>
+
+  <div class="field">
+    <label>Customer Mobile Number <span class="req">*</span></label>
+    <input type="tel" id="customerMobile" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
+    <div class="hint">Enter 10-digit number without +91</div>
+  </div>
+
+  <div class="field">
+    <label>Customer Name <span class="req">*</span></label>
+    <input type="text" id="customerName" placeholder="Enter customer name" required>
+  </div>
+
+  <div class="section-title">Call Outcome</div>
+
+  <div class="field">
+    <label>Call Status <span class="req">*</span></label>
+    <select id="callStatus" required>
+      <option value="" disabled selected>Select call status</option>
+      <option value="Called">Called</option>
+      <option value="Not Called">Not Called</option>
+      <option value="Call but did not connect">Call but did not connect</option>
+      <option value="Switch Off">Switch Off</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Customer Response <span class="req">*</span></label>
+    <select id="customerResponse" required>
+      <option value="" disabled selected>Select customer response</option>
+      <option value="Interested">Interested</option>
+      <option value="Not Interested">Not Interested</option>
+      <option value="Not Receiving Call">Not Receiving Call</option>
+      <option value="Installation Done">Installation Done</option>
+      <option value="Rescheduled">Rescheduled</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Remarks</label>
+    <textarea id="remarks" placeholder="Any additional notes (optional)"></textarea>
+  </div>
+
+  <button type="submit" id="submitBtn">Submit Feedback</button>
+
+  <div class="msg" id="msgBox"></div>
+</form>
+
+<footer>JIA Lead Capture Tool &middot; Data is saved directly to the backend Google Sheet</footer>
+
+<script>
+  // Paste your deployed Google Apps Script Web App URL below
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbywm2l2wev68BC_1tKeCX1cxcNpyXXVfoJNGTP23pAKPcwpE69ReuNnx3hMKfu0XKwM/exec';
+
+  const form = document.getElementById('leadForm');
+  const msgBox = document.getElementById('msgBox');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    msgBox.className = 'msg';
+    msgBox.textContent = '';
+
+    if (APPS_SCRIPT_URL.indexOf('PASTE_YOUR') === 0) {
+      msgBox.className = 'msg error';
+      msgBox.textContent = 'Setup needed: paste your Apps Script Web App URL into index.html first.';
+      return;
+    }
+
+    const payload = {
+      territory: document.getElementById('territory').value,
+      callerName: document.getElementById('callerName').value.trim(),
+      orderId: document.getElementById('orderId').value.trim(),
+      riderPrmId: document.getElementById('riderPrmId').value.trim(),
+      customerMobile: document.getElementById('customerMobile').value.trim(),
+      customerName: document.getElementById('customerName').value.trim(),
+      callStatus: document.getElementById('callStatus').value,
+      customerResponse: document.getElementById('customerResponse').value,
+      remarks: document.getElementById('remarks').value.trim()
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+
+    try {
+      const res = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+
+      if (data.result === 'success') {
+        msgBox.className = 'msg success';
+        msgBox.textContent = 'Lead feedback submitted successfully!';
+        form.reset();
+      } else {
+        throw new Error(data.message || 'Unknown error');
+      }
+    } catch (err) {
+      msgBox.className = 'msg error';
+      msgBox.textContent = 'Submission failed: ' + err.message;
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Feedback';
+    }
+  });
+</script>
+
+</body>
+</html>
